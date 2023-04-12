@@ -1,0 +1,60 @@
+<div 
+    *ngIf="!pais; else divPais"
+    class="alert alert-info">
+    <h4>Esperando la carga del pais...</h4>
+</div>
+<ng-template #divPais>
+    <div *ngIf="divPais" class="row">
+        <div  class="col-12">
+            <h3>Pais: {{pais.name.common}}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img 
+                [src]="pais.flags.png" 
+                class="img-thumbnail"
+                alt="">
+        </div>
+        <div class="col">
+            <h3>Informacion</h3>
+            <ul class="list-group">
+                <li class="list-group-item m5"><b>Poblacion</b>: {{pais.population | number}}</li>
+                <li class="list-group-item m5"><b>Capital</b>: {{pais.capital}}</li>
+                <li class="list-group-item m5"><b>Continente</b>: {{pais.continents[0]}}</li>
+            </ul>
+        </div>
+    </div>
+    <h3>Traducciones</h3>
+    <div class="row">
+        <div class="col">
+            <span class="badge bg-primary m5">{{pais.translations['bre'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['ces'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['ara'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['cym'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['deu'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['est'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['fin'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['fra'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['hrv'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['hun'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['ita'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['jpn'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['kor'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['nld'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['per'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['pol'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['por'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['rus'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['slk'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['spa'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['srp'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['swe'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['tur'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['urd'].official}}</span>
+            <span class="badge bg-primary m5">{{pais.translations['zho'].official}}</span>
+        </div>
+    </div>
+</ng-template>
+
