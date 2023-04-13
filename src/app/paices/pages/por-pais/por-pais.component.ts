@@ -27,7 +27,12 @@ export class PorPaisComponent {
         })
   }
   sugerencia( arg: any ){
-    this.buscar(arg);
+    this.error = false;
+    if(arg){
+      this.buscar(arg);
+    }
+    
+    this.paises = [];
   }
   constructor( private paisesService: PaisesService ){}
 }

@@ -22,14 +22,15 @@
             <ul class="list-group">
                 <li class="list-group-item m5"><b>Poblacion</b>: {{pais.population | number}}</li>
                 <li class="list-group-item m5"><b>Capital</b>: {{pais.capital}}</li>
+                <li class="list-group-item m5"><b>Codigo Numerico</b>: {{pais.ccn3}}</li>
                 <li class="list-group-item m5"><b>Continente</b>: {{pais.continents[0]}}</li>
             </ul>
         </div>
     </div>
     <h3>Traducciones</h3>
     <div class="row">
-        <div class="col">
-            <span class="badge bg-primary m5">{{pais.translations['bre'].official}}</span>
+        <div class="col animate__animated animate__pulse">
+            <span class="badge bg-primary m5 ">{{pais.translations['bre'].official}}</span>
             <span class="badge bg-primary m5">{{pais.translations['ces'].official}}</span>
             <span class="badge bg-primary m5">{{pais.translations['ara'].official}}</span>
             <span class="badge bg-primary m5">{{pais.translations['cym'].official}}</span>
