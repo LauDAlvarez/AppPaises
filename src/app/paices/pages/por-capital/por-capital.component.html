@@ -6,8 +6,8 @@
         <app-pais-input
             placeholder="Buscar Capital..."
             (onChange)="sugerencia( $event )"
-            (onEnter)="buscar( $event )">
-            
+            (onEnter)="buscar( $event )"
+            [initialValue]="initialValue">
         </app-pais-input>
     </div>
 </div>
@@ -16,10 +16,16 @@
         class="alert alert-danger">
     No se encontro nada con el termino {{termino}}
 </div>
+
 <div 
         *ngIf="paises.length > 0"
         class="row">
     <div class="col">
         <app-pais-tabla [paises]="paises" ></app-pais-tabla>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <shared-loading-spinner *ngIf="loading"></shared-loading-spinner>
     </div>
 </div>

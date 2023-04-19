@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PaisesService } from '../../services/paises.service';
 import { Countries } from '../../interfaces/paices.interface';
 
@@ -6,27 +6,30 @@ import { Countries } from '../../interfaces/paices.interface';
   selector: 'app-por-pais',
   templateUrl: './por-pais.component.html',
 })
-export class PorPaisComponent {
-  termino: string = '';
-  error  : boolean = false;
-  paises : Countries[] = [];  
+export class PorPaisComponent implements OnInit,OnDestroy {
+  termino     : string      = '';
+  initialValue: string      = '';
+  error       : boolean     = false;
+  loading     : boolean     = false;
+  paises      : Countries[] = [];  
 
   buscar( termino: string){
+    this.loading = true;
     this.error = false;
-    console.log(this.termino)
     this.termino = termino;
 
     this.paisesService.buscarPais( this.termino )
         .subscribe( (paises) => { 
-          console.log(paises)
           this.paises = paises;
+          this.loading = false;
         }, (error) => {
           this.error = true
           this.paises = [];
-          console.log(error);
         })
   }
+
   sugerencia( arg: any ){
+    this.loading = true;
     this.error = false;
     if(arg){
       this.buscar(arg);
@@ -34,5 +37,16 @@ export class PorPaisComponent {
     
     this.paises = [];
   }
+
   constructor( private paisesService: PaisesService ){}
+  
+  ngOnDestroy(): void {
+    this.termino = "";
+    this.initialValue = "";
+  }
+
+  ngOnInit(): void {
+    this.paises = this.paisesService.cacheStore.byCountries.countries;
+    this.initialValue = this.paisesService.cacheStore.byCountries.term;
+  }
 }

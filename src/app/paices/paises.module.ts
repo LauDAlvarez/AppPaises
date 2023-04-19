@@ -9,6 +9,7 @@ import { PorRegionComponent } from './pages/por-region/por-region.component';
 import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
 import { PaisTablaComponent } from './component/pais-tabla/pais-tabla.component';
 import { PaisInputComponent } from './component/pais-input/pais-input.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -32,7 +33,8 @@ import { PaisInputComponent } from './component/pais-input/pais-input.component'
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ]
 })
 export class PaisesModule { }
